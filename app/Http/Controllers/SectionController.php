@@ -3,6 +3,8 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Professor;
+use App\Course;
 use App\Section;
 use Illuminate\Http\Request;
 
@@ -15,9 +17,11 @@ class SectionController extends Controller {
 	 */
 	public function index()
 	{
+                $professors = Professor::all();
+                $courses = Course::all();
 		$sections = Section::orderBy('id', 'desc')->paginate(10);
 
-		return view('sections.index', compact('sections'));
+		return view('sections.index', compact('sections', 'professors', 'courses'));
 	}
 
 	/**
@@ -27,7 +31,10 @@ class SectionController extends Controller {
 	 */
 	public function create()
 	{
-		return view('sections.create');
+            //return view('sections.create');
+            $professors = Professor::all();
+            $courses = Course::all();
+            return view('sections.create', compact('professors', 'courses'));
 	}
 
 	/**
@@ -38,22 +45,20 @@ class SectionController extends Controller {
 	 */
 	public function store(Request $request)
 	{
-		$section = new Section();
+            $section = new Section();
+            
+            $section->crn = $request->input("crn");
+            $section->number = $request->input("number");
+            $section->room = $request->input("room");
+            $section->day = $request->input("day");
+            $section->begin = $request->input("begin");
+            $section->end = $request->input("end");
+            $section->professor_id = $request->input("professor_id");
+            $section->course_id = $request->input("course_id");
 
-		$section->crn = $request->input("crn");
-        $section->number = $request->input("number");
-        $section->room = $request->input("room");
-        $section->day = $request->input("day");
-        $section->begin = $request->input("begin");
-        $section->end = $request->input("end");
-        $section->professor_id = $request->input("professor_id");
-        $section->professor_id = $request->input("professor_id");
-        $section->course_id = $request->input("course_id");
-        $section->course_id = $request->input("course_id");
-
-		$section->save();
-
-		return redirect()->route('sections.index')->with('message', 'Item created successfully.');
+            $section->save();
+            
+            return redirect()->route('sections.index')->with('message', 'Item created successfully.');
 	}
 
 	/**
@@ -77,9 +82,11 @@ class SectionController extends Controller {
 	 */
 	public function edit($id)
 	{
+                $professors = Professor:all();
+                $courses = Course.all();
 		$section = Section::findOrFail($id);
 
-		return view('sections.edit', compact('section'));
+		return view('sections.edit', compact('section', 'professors', 'courses'));
 	}
 
 	/**
@@ -94,15 +101,13 @@ class SectionController extends Controller {
 		$section = Section::findOrFail($id);
 
 		$section->crn = $request->input("crn");
-        $section->number = $request->input("number");
-        $section->room = $request->input("room");
-        $section->day = $request->input("day");
-        $section->begin = $request->input("begin");
-        $section->end = $request->input("end");
-        $section->professor_id = $request->input("professor_id");
-        $section->professor_id = $request->input("professor_id");
-        $section->course_id = $request->input("course_id");
-        $section->course_id = $request->input("course_id");
+                $section->number = $request->input("number");
+                $section->room = $request->input("room");
+                $section->day = $request->input("day");
+                $section->begin = $request->input("begin");
+                $section->end = $request->input("end");
+                $section->professor_id = $request->input("professor_id");
+                $section->course_id = $request->input("course_id");
 
 		$section->save();
 

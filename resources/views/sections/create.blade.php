@@ -66,6 +66,33 @@
                         <span class="help-block">{{ $errors->first("professor_id") }}</span>
                        @endif
                     </div>
+
+                    <div class="form-group @if($errors->has('professor_id')) has-error @endif">
+                       <select
+                           id="professor_id-field"
+                           name="professor_id"
+                           class="form-control">
+                           <?php foreach ($professors as $professor) { ?>
+                               <option value="<?php echo $professor->id; ?>">
+                                   <?php echo $professors->professor; ?>
+                               </option>
+                           <?php } ?>
+                       </select>
+                       @if($errors->has("professor_id"))
+                          <span class="help-block">{{ $errors->first("professor_id")}}</span>
+                       @endif
+                    </div>
+
+{--
+                    <div class="form-group{{ $errors->has('professor_id') ? ' has-error' : '' }}">
+                       <label for="professor_id-field">Professor Name</label>
+                       <select name="professo" id="professor" class="form-control" required autofocus>
+                       @foreach($professors as $professor)
+                          <option value="{{ $professor }}">{{ $professor}}</option>
+                       @endforeach
+                      </select>
+                    </div>
+
                     <div class="form-group @if($errors->has('professor_id')) has-error @endif">
                        <label for="professor_id-field">Professor_id</label>
                     <input type="text" id="professor_id-field" name="professor_id" class="form-control" value="{{ old("professor_id") }}"/>
@@ -73,7 +100,8 @@
                         <span class="help-block">{{ $errors->first("professor_id") }}</span>
                        @endif
                     </div>
-                    <div class="form-group @if($errors->has('course_id')) has-error @endif">
+ --}
+                   <div class="form-group @if($errors->has('course_id')) has-error @endif">
                        <label for="course_id-field">Course_id</label>
                     <input type="text" id="course_id-field" name="course_id" class="form-control" value="{{ old("course_id") }}"/>
                        @if($errors->has("course_id"))
