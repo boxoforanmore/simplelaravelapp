@@ -11,6 +11,11 @@
 |
 */
 
+Route::resource("professors","ProfessorController");
+Route::resource("courses","CourseController");
+Route::resource("sections","SectionController");
+
+
 Route::get('/', function () {
     return view('welcome');
 });
