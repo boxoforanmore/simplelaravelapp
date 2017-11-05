@@ -82,8 +82,8 @@ class SectionController extends Controller {
 	 */
 	public function edit($id)
 	{
-                $professors = Professor:all();
-                $courses = Course.all();
+                $professors = Professor::all();
+                $courses = Course::all();
 		$section = Section::findOrFail($id);
 
 		return view('sections.edit', compact('section', 'professors', 'courses'));
