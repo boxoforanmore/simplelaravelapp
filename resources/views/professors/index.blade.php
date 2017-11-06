@@ -17,11 +17,10 @@
                 <table class="table table-condensed table-striped">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>NAME</th>
-                        <th>OFFICE</th>
-                        <th>PHONE</th>
-                        <th>DEPARTMENT</th>
+                            <th>OFFICE</th>
+                            <th>PHONE</th>
+                            <th>DEPARTMENT</th>
                             <th class="text-right">OPTIONS</th>
                         </tr>
                     </thead>
@@ -29,11 +28,10 @@
                     <tbody>
                         @foreach($professors as $professor)
                             <tr>
-                                <td>{{$professor->id}}</td>
                                 <td>{{$professor->name}}</td>
-                    <td>{{$professor->office}}</td>
-                    <td>{{$professor->phone}}</td>
-                    <td>{{$professor->department}}</td>
+                                <td>{{$professor->office}}</td>
+                                <td>{{$professor->phone}}</td>
+                                <td>{{$professor->department}}</td>
                                 <td class="text-right">
                                     <a class="btn btn-xs btn-primary" href="{{ route('professors.show', $professor->id) }}"><i class="glyphicon glyphicon-eye-open"></i> View</a>
                                     <a class="btn btn-xs btn-warning" href="{{ route('professors.edit', $professor->id) }}"><i class="glyphicon glyphicon-edit"></i> Edit</a>

@@ -3,6 +3,8 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Section;
+use App\Course;
 use App\Professor;
 use Illuminate\Http\Request;
 
@@ -41,9 +43,9 @@ class ProfessorController extends Controller {
 		$professor = new Professor();
 
 		$professor->name = $request->input("name");
-        $professor->office = $request->input("office");
-        $professor->phone = $request->input("phone");
-        $professor->department = $request->input("department");
+                $professor->office = $request->input("office");
+                $professor->phone = $request->input("phone");
+                $professor->department = $request->input("department");
 
 		$professor->save();
 
@@ -59,7 +61,9 @@ class ProfessorController extends Controller {
 	public function show($id)
 	{
 		$professor = Professor::findOrFail($id);
-
+                $section = Section::find($id);
+                $course = Course::findOrFail($id);
+   
 		return view('professors.show', compact('professor'));
 	}
 
@@ -88,9 +92,9 @@ class ProfessorController extends Controller {
 		$professor = Professor::findOrFail($id);
 
 		$professor->name = $request->input("name");
-        $professor->office = $request->input("office");
-        $professor->phone = $request->input("phone");
-        $professor->department = $request->input("department");
+                $professor->office = $request->input("office");
+                $professor->phone = $request->input("phone");
+                $professor->department = $request->input("department");
 
 		$professor->save();
 

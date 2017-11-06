@@ -3,6 +3,8 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Professor;
+use App\Section;
 use App\Course;
 use Illuminate\Http\Request;
 
@@ -41,11 +43,11 @@ class CourseController extends Controller {
 		$course = new Course();
 
 		$course->name = $request->input("name");
-        $course->number = $request->input("number");
-        $course->department = $request->input("department");
-        $course->credit = $request->input("credit");
-        $course->semester = $request->input("semester");
-        $course->year = $request->input("year");
+                $course->number = $request->input("number");
+                $course->department = $request->input("department");
+                $course->credit = $request->input("credit");
+                $course->semester = $request->input("semester");
+                $course->year = $request->input("year");
 
 		$course->save();
 
@@ -61,6 +63,8 @@ class CourseController extends Controller {
 	public function show($id)
 	{
 		$course = Course::findOrFail($id);
+                $section = Section::find($id);
+                $professor = Professor::findOrFail($id);
 
 		return view('courses.show', compact('course'));
 	}
@@ -90,11 +94,11 @@ class CourseController extends Controller {
 		$course = Course::findOrFail($id);
 
 		$course->name = $request->input("name");
-        $course->number = $request->input("number");
-        $course->department = $request->input("department");
-        $course->credit = $request->input("credit");
-        $course->semester = $request->input("semester");
-        $course->year = $request->input("year");
+                $course->number = $request->input("number");
+                $course->department = $request->input("department");
+                $course->credit = $request->input("credit");
+                $course->semester = $request->input("semester");
+                $course->year = $request->input("year");
 
 		$course->save();
 

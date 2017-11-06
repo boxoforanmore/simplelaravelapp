@@ -70,6 +70,8 @@ class SectionController extends Controller {
 	public function show($id)
 	{
 		$section = Section::findOrFail($id);
+                $professor = Professor::findOrFail($id);
+                $course = Course::findOrFail($id);
 
 		return view('sections.show', compact('section'));
 	}

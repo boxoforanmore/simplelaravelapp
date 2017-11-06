@@ -60,34 +60,41 @@
                         <span class="help-block">{{ $errors->first("end") }}</span>
                        @endif
                     </div>
+
                     <div class="form-group @if($errors->has('professor_id')) has-error @endif">
-                       <label for="professor_id-field">Professor_id</label>
-                    <input type="text" id="professor_id-field" name="professor_id" class="form-control" value="{{ is_null(old("professor_id")) ? $section->professor_id : old("professor_id") }}"/>
+                       <label for="professor_id-field">Professor Name</label>
+                       <select
+                           id="professor_id-field"
+                           name="professor_id"
+                           class="form-control">
+                           <?php foreach ($professors as $professor) { ?>
+                               <option value="<?php echo $professor->id; ?>">
+                                   <?php echo $professor->name; ?>
+                               </option>
+                           <?php } ?>
+                       </select>
                        @if($errors->has("professor_id"))
-                        <span class="help-block">{{ $errors->first("professor_id") }}</span>
+                          <span class="help-block">{{ $errors->first("professor_id")}}</span>
                        @endif
                     </div>
-                    <div class="form-group @if($errors->has('professor_id')) has-error @endif">
-                       <label for="professor_id-field">Professor_id</label>
-                    <input type="text" id="professor_id-field" name="professor_id" class="form-control" value="{{ is_null(old("professor_id")) ? $section->professor_id : old("professor_id") }}"/>
-                       @if($errors->has("professor_id"))
-                        <span class="help-block">{{ $errors->first("professor_id") }}</span>
-                       @endif
-                    </div>
+
                     <div class="form-group @if($errors->has('course_id')) has-error @endif">
-                       <label for="course_id-field">Course_id</label>
-                    <input type="text" id="course_id-field" name="course_id" class="form-control" value="{{ is_null(old("course_id")) ? $section->course_id : old("course_id") }}"/>
+                       <label for="course_id-field">Course Name</label>
+                       <select
+                           id="course_id-field"
+                           name="course_id"
+                           class="form-control">
+                           <?php foreach ($courses as $course) { ?>
+                               <option value="<?php echo $course->id; ?>">
+                                   <?php echo $course->name; ?>
+                               </option>
+                           <?php } ?>
+                       </select>
                        @if($errors->has("course_id"))
                         <span class="help-block">{{ $errors->first("course_id") }}</span>
                        @endif
                     </div>
-                    <div class="form-group @if($errors->has('course_id')) has-error @endif">
-                       <label for="course_id-field">Course_id</label>
-                    <input type="text" id="course_id-field" name="course_id" class="form-control" value="{{ is_null(old("course_id")) ? $section->course_id : old("course_id") }}"/>
-                       @if($errors->has("course_id"))
-                        <span class="help-block">{{ $errors->first("course_id") }}</span>
-                       @endif
-                    </div>
+
                 <div class="well well-sm">
                     <button type="submit" class="btn btn-primary">Save</button>
                     <a class="btn btn-link pull-right" href="{{ route('sections.index') }}"><i class="glyphicon glyphicon-backward"></i>  Back</a>

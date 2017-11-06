@@ -17,17 +17,15 @@
                 <table class="table table-condensed table-striped">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>CRN</th>
-                        <th>NUMBER</th>
-                        <th>ROOM</th>
-                        <th>DAY</th>
-                        <th>BEGIN</th>
-                        <th>END</th>
-                        <th>PROFESSOR_ID</th>
-                        <th>PROFESSOR_ID</th>
-                        <th>COURSE_ID</th>
-                        <th>COURSE_ID</th>
+                            <th>DEPARTMENT</th>
+                            <th>COURSE NUMBER</th>
+                            <th>SECTION NUMBER</th>
+                            <th>COURSE NAME</th>
+                            <th>PROFESSOR NAME</th>
+                            <th>ROOM</th>
+                            <th>DAY</th>
+                            <th>TIME</th>
                             <th class="text-right">OPTIONS</th>
                         </tr>
                     </thead>
@@ -35,17 +33,15 @@
                     <tbody>
                         @foreach($sections as $section)
                             <tr>
-                                <td>{{$section->id}}</td>
                                 <td>{{$section->crn}}</td>
-                    <td>{{$section->number}}</td>
-                    <td>{{$section->room}}</td>
-                    <td>{{$section->day}}</td>
-                    <td>{{$section->begin}}</td>
-                    <td>{{$section->end}}</td>
-                    <td>{{$section->professor_id}}</td>
-                    <td>{{$section->professor_id}}</td>
-                    <td>{{$section->course_id}}</td>
-                    <td>{{$section->course_id}}</td>
+                                <td>{{$section->course->department}}</td>
+                                <td>{{$section->course->number}}</td>
+                                <td>{{$section->number}}</td>
+                                <td>{{$section->course->name}}</td>
+                                <td>{{$section->professor->name}}</td>
+                                <td>{{$section->room}}</td>
+                                <td>{{$section->day}}</td>
+                                <td>{{$section->begin}}-{{$section->end}}</td>
                                 <td class="text-right">
                                     <a class="btn btn-xs btn-primary" href="{{ route('sections.show', $section->id) }}"><i class="glyphicon glyphicon-eye-open"></i> View</a>
                                     <a class="btn btn-xs btn-warning" href="{{ route('sections.edit', $section->id) }}"><i class="glyphicon glyphicon-edit"></i> Edit</a>

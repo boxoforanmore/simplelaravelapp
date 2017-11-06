@@ -1,7 +1,7 @@
 @extends('layout')
 @section('header')
 <div class="page-header">
-        <h1>Courses / Show #{{$course->id}}</h1>
+        <h1>Courses : {{$course->name}}</h1>
         <form action="{{ route('courses.destroy', $course->id) }}" method="POST" style="display: inline;" onsubmit="if(confirm('Delete? Are you sure?')) { return true } else {return false };">
             <input type="hidden" name="_method" value="DELETE">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -19,32 +19,51 @@
 
             <form action="#">
                 <div class="form-group">
-                    <label for="nome">ID</label>
-                    <p class="form-control-static"></p>
-                </div>
-                <div class="form-group">
                      <label for="name">NAME</label>
                      <p class="form-control-static">{{$course->name}}</p>
                 </div>
-                    <div class="form-group">
+                <div class="form-group">
                      <label for="number">NUMBER</label>
                      <p class="form-control-static">{{$course->number}}</p>
                 </div>
-                    <div class="form-group">
+                <div class="form-group">
                      <label for="department">DEPARTMENT</label>
                      <p class="form-control-static">{{$course->department}}</p>
                 </div>
-                    <div class="form-group">
+                <div class="form-group">
                      <label for="credit">CREDIT</label>
                      <p class="form-control-static">{{$course->credit}}</p>
                 </div>
-                    <div class="form-group">
+                <div class="form-group">
                      <label for="semester">SEMESTER</label>
                      <p class="form-control-static">{{$course->semester}}</p>
                 </div>
-                    <div class="form-group">
+                <div class="form-group">
                      <label for="year">YEAR</label>
                      <p class="form-control-static">{{$course->year}}</p>
+                </div>
+                <div class="form-group">
+                    <label for="section">SECTIONS</label>
+                    <table class="table table-condensed table-striped">
+                        <tr>
+                            <th>Section Number</th>
+                            <th>CRN</th>
+                            <th>Professor</th>
+                            <th>Phone</th>
+                            <th>Day</th>
+                            <th>Time</th>
+                        </tr>
+                        <?php foreach ($course->sections as $section) { ?>
+                        <tr>
+                            <td><?php echo $section->number; ?></td>
+                            <td><?php echo $section->crn; ?></td>
+                            <td><?php echo $section->professor->name; ?></td>
+                            <td><?php echo $section->professor->phone; ?></td>
+                            <td><?php echo $section->day; ?></td>
+                            <td><?php echo $section->begin; echo "-"; echo $section->end; ?></td>
+                        </tr>
+                        <?php } ?>
+                    </table>
                 </div>
             </form>
 

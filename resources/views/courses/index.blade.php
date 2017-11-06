@@ -17,13 +17,12 @@
                 <table class="table table-condensed table-striped">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>NAME</th>
-                        <th>NUMBER</th>
-                        <th>DEPARTMENT</th>
-                        <th>CREDIT</th>
-                        <th>SEMESTER</th>
-                        <th>YEAR</th>
+                            <th>NUMBER</th>
+                            <th>DEPARTMENT</th>
+                            <th>CREDIT</th>
+                            <th>SEMESTER</th>
+                            <th>YEAR</th>
                             <th class="text-right">OPTIONS</th>
                         </tr>
                     </thead>
@@ -31,13 +30,12 @@
                     <tbody>
                         @foreach($courses as $course)
                             <tr>
-                                <td>{{$course->id}}</td>
                                 <td>{{$course->name}}</td>
-                    <td>{{$course->number}}</td>
-                    <td>{{$course->department}}</td>
-                    <td>{{$course->credit}}</td>
-                    <td>{{$course->semester}}</td>
-                    <td>{{$course->year}}</td>
+                                <td>{{$course->number}}</td>
+                                <td>{{$course->department}}</td>
+                                <td>{{$course->credit}}</td>
+                                <td>{{$course->semester}}</td>
+                                <td>{{$course->year}}</td>
                                 <td class="text-right">
                                     <a class="btn btn-xs btn-primary" href="{{ route('courses.show', $course->id) }}"><i class="glyphicon glyphicon-eye-open"></i> View</a>
                                     <a class="btn btn-xs btn-warning" href="{{ route('courses.edit', $course->id) }}"><i class="glyphicon glyphicon-edit"></i> Edit</a>
