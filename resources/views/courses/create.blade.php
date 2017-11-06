@@ -4,7 +4,7 @@
 @endsection
 @section('header')
     <div class="page-header">
-        <h1><i class="glyphicon glyphicon-plus"></i> Courses / Create </h1>
+        <h1><i class="glyphicon glyphicon-plus"></i>Create Course:</h1>
     </div>
 @endsection
 
@@ -39,7 +39,7 @@
                        @endif
                     </div>
                     <div class="form-group @if($errors->has('credit')) has-error @endif">
-                       <label for="credit-field">Credit</label>
+                       <label for="credit-field">Credits</label>
                     <input type="text" id="credit-field" name="credit" class="form-control" value="{{ old("credit") }}"/>
                        @if($errors->has("credit"))
                         <span class="help-block">{{ $errors->first("credit") }}</span>
@@ -47,7 +47,14 @@
                     </div>
                     <div class="form-group @if($errors->has('semester')) has-error @endif">
                        <label for="semester-field">Semester</label>
-                    <input type="text" id="semester-field" name="semester" class="form-control" value="{{ old("semester") }}"/>
+                       <select
+                           id="semester-field"
+                           name="semester"
+                           class="form-control">
+                               <option><?php echo "Fall"; ?></option>
+                               <option><?php echo "Spring"; ?></option>
+                               <option><?php echo "Summer"; ?></option>
+                       </select>
                        @if($errors->has("semester"))
                         <span class="help-block">{{ $errors->first("semester") }}</span>
                        @endif

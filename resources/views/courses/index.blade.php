@@ -20,7 +20,7 @@
                             <th>NAME</th>
                             <th>NUMBER</th>
                             <th>DEPARTMENT</th>
-                            <th>CREDIT</th>
+                            <th>CREDITS</th>
                             <th>SEMESTER</th>
                             <th>YEAR</th>
                             <th class="text-right">OPTIONS</th>

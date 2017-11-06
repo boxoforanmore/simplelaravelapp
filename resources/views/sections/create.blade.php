@@ -4,7 +4,7 @@
 @endsection
 @section('header')
     <div class="page-header">
-        <h1><i class="glyphicon glyphicon-plus"></i> Sections / Create </h1>
+        <h1><i class="glyphicon glyphicon-plus"></i>Create Section:</h1>
     </div>
 @endsection
 
@@ -18,43 +18,43 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                 <div class="form-group @if($errors->has('crn')) has-error @endif">
-                       <label for="crn-field">Crn</label>
-                    <input type="text" id="crn-field" name="crn" class="form-control" value="{{ old("crn") }}"/>
+                       <label for="crn-field">CRN</label>
+                       <input type="text" id="crn-field" name="crn" class="form-control" value="{{ old("crn") }}"/>
                        @if($errors->has("crn"))
                         <span class="help-block">{{ $errors->first("crn") }}</span>
                        @endif
                     </div>
                     <div class="form-group @if($errors->has('number')) has-error @endif">
-                       <label for="number-field">Number</label>
-                    <input type="text" id="number-field" name="number" class="form-control" value="{{ old("number") }}"/>
+                       <label for="number-field">Section Number</label>
+                       <input type="text" id="number-field" name="number" class="form-control" value="{{ old("number") }}"/>
                        @if($errors->has("number"))
                         <span class="help-block">{{ $errors->first("number") }}</span>
                        @endif
                     </div>
                     <div class="form-group @if($errors->has('room')) has-error @endif">
                        <label for="room-field">Room</label>
-                    <input type="text" id="room-field" name="room" class="form-control" value="{{ old("room") }}"/>
+                       <input type="text" id="room-field" name="room" class="form-control" value="{{ old("room") }}"/>
                        @if($errors->has("room"))
                         <span class="help-block">{{ $errors->first("room") }}</span>
                        @endif
                     </div>
                     <div class="form-group @if($errors->has('day')) has-error @endif">
-                       <label for="day-field">Day</label>
-                    <input type="text" id="day-field" name="day" class="form-control" value="{{ old("day") }}"/>
+                       <label for="day-field">Days</label>
+                       <input type="text" id="day-field" name="day" class="form-control" value="{{ old("day") }}"/>
                        @if($errors->has("day"))
                         <span class="help-block">{{ $errors->first("day") }}</span>
                        @endif
                     </div>
                     <div class="form-group @if($errors->has('begin')) has-error @endif">
                        <label for="begin-field">Begin</label>
-                    <input type="text" id="begin-field" name="begin" class="form-control" value="{{ old("begin") }}"/>
+                       <input type="text" id="begin-field" name="begin" class="form-control" value="{{ old("begin") }}"/>
                        @if($errors->has("begin"))
                         <span class="help-block">{{ $errors->first("begin") }}</span>
                        @endif
                     </div>
                     <div class="form-group @if($errors->has('end')) has-error @endif">
                        <label for="end-field">End</label>
-                    <input type="text" id="end-field" name="end" class="form-control" value="{{ old("end") }}"/>
+                       <input type="text" id="end-field" name="end" class="form-control" value="{{ old("end") }}"/>
                        @if($errors->has("end"))
                         <span class="help-block">{{ $errors->first("end") }}</span>
                        @endif

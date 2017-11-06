@@ -4,7 +4,7 @@
 @endsection
 @section('header')
     <div class="page-header">
-        <h1><i class="glyphicon glyphicon-edit"></i> Courses / Edit #{{$course->id}}</h1>
+        <h1><i class="glyphicon glyphicon-edit"></i> Edit Course: {{$course->name}}</h1>
     </div>
 @endsection
 
@@ -40,7 +40,7 @@
                        @endif
                     </div>
                     <div class="form-group @if($errors->has('credit')) has-error @endif">
-                       <label for="credit-field">Credit</label>
+                       <label for="credit-field">Credits</label>
                     <input type="text" id="credit-field" name="credit" class="form-control" value="{{ is_null(old("credit")) ? $course->credit : old("credit") }}"/>
                        @if($errors->has("credit"))
                         <span class="help-block">{{ $errors->first("credit") }}</span>

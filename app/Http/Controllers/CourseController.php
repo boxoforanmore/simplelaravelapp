@@ -64,7 +64,7 @@ class CourseController extends Controller {
 	{
 		$course = Course::findOrFail($id);
                 $section = Section::find($id);
-                $professor = Professor::findOrFail($id);
+                $professor = Professor::find($id);
 
 		return view('courses.show', compact('course'));
 	}

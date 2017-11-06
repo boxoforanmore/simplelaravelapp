@@ -1,7 +1,7 @@
 @extends('layout')
 @section('header')
 <div class="page-header">
-        <h1>Sections : {{$section->course->department}} {{$section->course->number}}-{{$section->number}}</h1>
+        <h1>Show Section: {{$section->crn}}, {{$section->course->department}} {{$section->course->number}}-{{$section->number}}</h1>
         <form action="{{ route('sections.destroy', $section->id) }}" method="POST" style="display: inline;" onsubmit="if(confirm('Delete? Are you sure?')) { return true } else {return false };">
             <input type="hidden" name="_method" value="DELETE">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">

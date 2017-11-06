@@ -1,7 +1,7 @@
 @extends('layout')
 @section('header')
 <div class="page-header">
-        <h1>Courses : {{$course->name}}</h1>
+        <h1>Show Course: {{$course->name}}</h1>
         <form action="{{ route('courses.destroy', $course->id) }}" method="POST" style="display: inline;" onsubmit="if(confirm('Delete? Are you sure?')) { return true } else {return false };">
             <input type="hidden" name="_method" value="DELETE">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -31,7 +31,7 @@
                      <p class="form-control-static">{{$course->department}}</p>
                 </div>
                 <div class="form-group">
-                     <label for="credit">CREDIT</label>
+                     <label for="credit">CREDITS</label>
                      <p class="form-control-static">{{$course->credit}}</p>
                 </div>
                 <div class="form-group">
@@ -45,6 +45,7 @@
                 <div class="form-group">
                     <label for="section">SECTIONS</label>
                     <table class="table table-condensed table-striped">
+                    <thead>
                         <tr>
                             <th>Section Number</th>
                             <th>CRN</th>
@@ -53,6 +54,8 @@
                             <th>Day</th>
                             <th>Time</th>
                         </tr>
+                    </thead>
+                    <tbody>
                         <?php foreach ($course->sections as $section) { ?>
                         <tr>
                             <td><?php echo $section->number; ?></td>
@@ -63,6 +66,7 @@
                             <td><?php echo $section->begin; echo "-"; echo $section->end; ?></td>
                         </tr>
                         <?php } ?>
+                    </tbody>
                     </table>
                 </div>
             </form>
