@@ -38,6 +38,7 @@
                     <div class="form-group">
                     <label for="section">SECTIONS</label>
                     <table class="table table-condensed table-striped">
+                    <thead>
                         <tr>
                             <th>CRN</th>
                             <th>Course Name</th>
@@ -49,6 +50,8 @@
                             <th>Semester</th>
                             <th>Year</th>
                         </tr>
+                    </thead>
+                    <tbody>
                         <?php foreach ($professor->sections as $section) { ?>
                         <tr>
                             <td><?php echo $section->crn; ?></td>
@@ -62,6 +65,7 @@
                             <td><?php echo $section->course->year; ?></td>
                         </tr>
                         <?php } ?>
+                    </tbody>
                     </table>
                     @if($errors->has("section_id"))
                         <span class="help-block">{{ $errors->first("section_id") }}</span>
