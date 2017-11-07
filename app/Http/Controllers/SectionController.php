@@ -45,6 +45,17 @@ class SectionController extends Controller {
 	 */
 	public function store(Request $request)
 	{
+            $this->validate($request, [
+                 "crn" => 'required|max:5|unique:sections',
+                 "number" => 'required|max:2',
+                 "room" => 'max:6',
+                 "day" => 'max:5',
+                 "begin" => 'max:7',
+                 "end" => 'max:7',
+                 "professor_id" => 'required',
+                 "course_id" => 'required',
+            ]); 
+
             $section = new Section();
             
             $section->crn = $request->input("crn");

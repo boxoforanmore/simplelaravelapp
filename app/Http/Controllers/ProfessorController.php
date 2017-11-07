@@ -40,6 +40,13 @@ class ProfessorController extends Controller {
 	 */
 	public function store(Request $request)
 	{
+                $this->validate($request, [
+                    "name" => 'required|max:30',
+                    "office" => 'required|max:10',
+                    "phone" => 'max:10',
+                    "department" => 'required|max:4',
+                ]);
+
 		$professor = new Professor();
 
 		$professor->name = $request->input("name");
