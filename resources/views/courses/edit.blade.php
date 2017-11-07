@@ -48,7 +48,14 @@
                     </div>
                     <div class="form-group @if($errors->has('semester')) has-error @endif">
                        <label for="semester-field">Semester</label>
-                    <input type="text" id="semester-field" name="semester" class="form-control" value="{{ is_null(old("semester")) ? $course->semester : old("semester") }}"/>
+                       <select
+                           id="semester-field"
+                           name="semester"
+                           class="form-control">
+                               <option><?php echo "Fall"; ?></option>
+                               <option><?php echo "Spring"; ?></option>
+                               <option><?php echo "Summer"; ?></option>
+                       </select>
                        @if($errors->has("semester"))
                         <span class="help-block">{{ $errors->first("semester") }}</span>
                        @endif
